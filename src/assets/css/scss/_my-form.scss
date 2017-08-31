@@ -74,5 +74,10 @@
     font-size: 1.6rem;
     font-weight: 600;
     color: $cl_grey-text;
+
+    &:disabled {
+      background-color: #d1d5da;
+      cursor: default;
+    }
   }
 }

@@ -111,3 +111,6 @@ html {
   font-size: 1.6rem;
   font-weight: 600;
   color: #586069; }
+  .my-form_submit:disabled {
+    background-color: #d1d5da;
+    cursor: default; }

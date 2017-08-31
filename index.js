@@ -127,19 +127,24 @@ Form.prototype.ajaxGet = function( url, data ) {
 
 Form.prototype.responseProcessing = function( data ) {
   const _this = this,
+    submitButton = this.form.querySelector('#submitButton'),
     random = Math.random();
+
+  submitButton.disabled = data.status === 'progress';
 
   switch(data.status) {
     case 'progress':
       _this.setStatus('progress');
 
       setTimeout(function() {
+        const formData = _this.getData();
+
         if(random > .66) {
-          _this.ajaxGet('/handlers/progress.json' ,_this.getData());
+          _this.ajaxGet('/handlers/progress.json', formData);
         } else if(random > .33) {
-          _this.ajaxGet('/handlers/success.json' ,_this.getData());
+          _this.ajaxGet('/handlers/success.json', formData);
         } else {
-          _this.ajaxGet('/handlers/error.json' ,_this.getData());
+          _this.ajaxGet('/handlers/error.json', formData);
         }
       }, data.timeout);
 
