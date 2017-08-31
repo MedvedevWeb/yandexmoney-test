@@ -137,15 +137,14 @@ Form.prototype.responseProcessing = function( data ) {
       _this.setStatus('progress');
 
       setTimeout(function() {
-        const formData = _this.getData();
+        const formData = _this.getData(),
+          url = (random > .66)
+            ? 'handlers/progress.json'
+            : (random > .33)
+              ? 'handlers/success.json'
+              : 'handlers/error.json';
 
-        if(random > .66) {
-          _this.ajaxGet('handlers/progress.json', formData);
-        } else if(random > .33) {
-          _this.ajaxGet('handlers/success.json', formData);
-        } else {
-          _this.ajaxGet('handlers/error.json', formData);
-        }
+        _this.ajaxGet(url, formData);
       }, data.timeout);
 
       break;

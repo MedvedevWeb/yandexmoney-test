@@ -25,14 +25,14 @@ const path = {
     mainJs: 'src/assets/js/main.js',
     vendorsJS: 'src/assets/js/vendors.js',
     sass: 'src/assets/css/scss/main.scss',
-    img: [ 'src/assets/img/**/*.*', '!src/assets/img/png-sptite/', '!src/assets/img/svg-sptite/' ]
+    img: [ 'src/assets/img/**/*.*', '!src/assets/img/sprites/' ]
   },
   watch: {
     pug: 'src/pug/**/*.pug',
     mainJS: [ 'src/assets/js/main.js', 'src/assets/js/main/**/*.js' ],
     vendorsJS: [ 'src/assets/js/vendors.js', 'src/assets/js/vendors/**/*.js' ],
     sass: 'src/assets/css/**/*.{css,scss,sass}',
-    img: [ 'src/assets/img/**/*.*', '!src/assets/img/png-sptite/', '!src/assets/img/svg-sptite/' ]
+    img: [ 'src/assets/img/**/*.*', '!src/assets/img/sprites/' ]
   },
   base: './'
 };
