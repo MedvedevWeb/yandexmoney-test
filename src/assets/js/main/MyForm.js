@@ -127,13 +127,14 @@ Form.prototype.ajaxGet = function( url, data ) {
 
 Form.prototype.responseProcessing = function( data ) {
   const _this = this,
-    submitButton = this.form.querySelector('#submitButton'),
-    random = Math.random();
+    submitButton = this.form.querySelector('#submitButton');
 
   submitButton.disabled = data.status === 'progress';
 
   switch(data.status) {
-    case 'progress':
+    case 'progress':,
+      const random = Math.random();
+
       _this.setStatus('progress');
 
       setTimeout(function() {
