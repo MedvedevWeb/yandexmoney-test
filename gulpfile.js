@@ -98,6 +98,7 @@ gulp.task('watch', function () {
   gulp.watch(path.watch.mainJS, [ 'mainJS:build' ]);
   gulp.watch(path.watch.vendorsJS, [ 'vendorsJS:build' ]);
   gulp.watch(path.watch.sass, [ 'css:build' ]);
+  gulp.watch(path.watch.img, [ 'img:build' ]);
 });
 gulp.task('build', [ 'html:build', 'mainJS:build', 'vendorsJS:build', 'css:build', 'image:build' ]);
 gulp.task('default', [ 'build', 'browser-sync', 'watch' ]);
