@@ -13,6 +13,7 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
     "gulp-cssmin": "^0.2.0",
+    "gulp-imagemin": "^3.3.0",
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.3.0",
     "gulp-rename": "^1.2.2",
@@ -20,7 +21,6 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
-    "inputmask": "^3.3.7",
-    "jquery": "^3.2.1"
+    "imagemin-pngquant": "^5.0.1"
   }
 }

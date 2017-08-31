@@ -82,7 +82,7 @@ html {
   font-size: 1.6rem;
   color: #586069; }
   .my-form_result.progress {
-    background: url("https://www.sstnet.com.br/img/preload.gif") no-repeat center center; }
+    background: url("../img/preload.gif") no-repeat center center; }
   .my-form_result.success {
     background-color: #deffdc;
     border: 1px solid #b1f1ad; }

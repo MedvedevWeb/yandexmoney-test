@@ -140,11 +140,11 @@ Form.prototype.responseProcessing = function( data ) {
         const formData = _this.getData();
 
         if(random > .66) {
-          _this.ajaxGet('/handlers/progress.json', formData);
+          _this.ajaxGet('handlers/progress.json', formData);
         } else if(random > .33) {
-          _this.ajaxGet('/handlers/success.json', formData);
+          _this.ajaxGet('handlers/success.json', formData);
         } else {
-          _this.ajaxGet('/handlers/error.json', formData);
+          _this.ajaxGet('handlers/error.json', formData);
         }
       }, data.timeout);
 

@@ -6,6 +6,8 @@ const gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   cssmin = require('gulp-cssmin'),
   sass = require('gulp-sass'),
+  imagemin = require('gulp-imagemin'),
+  pngquant = require('imagemin-pngquant'),
   rename = require('gulp-rename'),
   rigger = require("gulp-rigger"),
   plumber = require('gulp-plumber'),
@@ -15,19 +17,22 @@ const gulp = require('gulp'),
 const path = {
   build: {
     vendorsJS: 'assets/js/',
-    css: 'assets/css/'
+    css: 'assets/css/',
+    img: 'assets/img/'
   },
   src: {
     pug: 'src/pug/pages/*.pug',
     mainJs: 'src/assets/js/main.js',
     vendorsJS: 'src/assets/js/vendors.js',
-    sass: 'src/assets/css/scss/main.scss'
+    sass: 'src/assets/css/scss/main.scss',
+    img: [ 'src/assets/img/**/*.*', '!src/assets/img/png-sptite/', '!src/assets/img/svg-sptite/' ]
   },
   watch: {
     pug: 'src/pug/**/*.pug',
     mainJS: [ 'src/assets/js/main.js', 'src/assets/js/main/**/*.js' ],
     vendorsJS: [ 'src/assets/js/vendors.js', 'src/assets/js/vendors/**/*.js' ],
-    sass: 'src/assets/css/**/*.{css,scss,sass}'
+    sass: 'src/assets/css/**/*.{css,scss,sass}',
+    img: [ 'src/assets/img/**/*.*', '!src/assets/img/png-sptite/', '!src/assets/img/svg-sptite/' ]
   },
   base: './'
 };
@@ -70,6 +75,17 @@ gulp.task('css:build', function () {
     .pipe(gulp.dest(path.build.css))
     .pipe(browserSync.reload({stream:true}));
 });
+gulp.task('image:build', function () {
+  gulp.src(path.src.img)
+    .pipe(imagemin({
+        progressive: true,
+        svgoPlugins: [{removeViewBox: false}],
+        use: [pngquant()],
+        interlaced: true
+    }))
+    .pipe(gulp.dest(path.build.img))
+    .pipe(browserSync.stream());
+});
 gulp.task('browser-sync', function() {
   browserSync.init({
     server: {
@@ -83,5 +99,5 @@ gulp.task('watch', function () {
   gulp.watch(path.watch.vendorsJS, [ 'vendorsJS:build' ]);
   gulp.watch(path.watch.sass, [ 'css:build' ]);
 });
-gulp.task('build', [ 'html:build', 'mainJS:build', 'vendorsJS:build', 'css:build' ]);
+gulp.task('build', [ 'html:build', 'mainJS:build', 'vendorsJS:build', 'css:build', 'image:build' ]);
 gulp.task('default', [ 'build', 'browser-sync', 'watch' ]);
