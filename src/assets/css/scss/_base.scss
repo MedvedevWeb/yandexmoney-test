@@ -1,0 +1,47 @@
+html {
+  height: 100%;
+  font-size: 10px;
+  font-family: Helvetica, Arial, sans-serif;
+  line-height: .9;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.body {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  margin: 0;
+  background-color: #fff;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.page {
+  display: table;
+  width: 100%;
+  height: 100%;
+
+  &-content {
+    display: table-cell;
+    height: 100%;
+    vertical-align: middle;
+  }
+}
+
+.middle-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-width: 0 40px;
+  border-style: solid;
+  border-color: transparent;
+  box-sizing: border-box;
+  line-height: 1;
+
+  @media only screen and (max-width: $ss_mobile) {
+    border-width: 0;
+  }
+}

@@ -1,0 +1,20 @@
+extends ../blocks/site-foundation
+
+block content
+  .my-form
+    .middle-wrapper
+      form#myForm(action="handlers/progress.json" method="post" accept="multipart/form-data")
+        .my-form_inner
+          .my-form_line
+            label.my-form_label(for="my-form_fio") ФИО
+            input.my-form_input#my-form_fio(name="fio" data-pattern="fio")
+          .my-form_line
+            label.my-form_label(for="my-form_email") Почта
+            input.my-form_input#my-form_email(name="email" data-pattern="email")
+          .my-form_line
+            label.my-form_label(for="my-form_phone") Телефон
+            input.my-form_input#my-form_phone(name="phone" data-pattern="phone")
+          .my-form_line
+            button.my-form_submit#submitButton(type="submit") Отправить
+          .my-form_line
+            .my-form_result#resultContainer

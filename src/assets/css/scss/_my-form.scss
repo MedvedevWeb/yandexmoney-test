@@ -1,0 +1,78 @@
+.my-form {
+  &_inner {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    border: 1px solid $cl_grey-border;
+    box-shadow: 0 0 29px -10px rgba(0, 0, 0, .7);
+  }
+
+  &_line {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &_label {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $cl_grey-text;
+    cursor: pointer
+  }
+
+  &_input {
+    width: 100%;
+    height: 40px;
+    margin-top: 8px;
+    padding: 0 10px;
+    border: 1px solid $cl_grey-border;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 1.6rem;
+    color: $cl_grey-text;
+    transition: border .2s;
+
+    &.error {
+      border: 1px solid red;
+    }
+  }
+
+  &_result {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    background-color: $cl_grey-bg;
+    border: 1px solid $cl_grey-border;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 1.6rem;
+    color: $cl_grey-text;
+
+    &.progress {
+      background: url('https://www.sstnet.com.br/img/preload.gif') no-repeat center center;
+    }
+
+    &.success {
+      background-color: #deffdc;
+      border: 1px solid #b1f1ad;
+    }
+
+    &.error {
+      background-color: #ffdada;
+      border: 1px solid #ffbfbf;
+    }
+  }
+
+  &_submit {
+    @include button;
+    width: 100%;
+    height: 50px;
+    margin-top: 10px;
+    border: 1px solid $cl_grey-border;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: $cl_grey-text;
+  }
+}
